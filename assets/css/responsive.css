@@ -1,0 +1,240 @@
+/* responsive.css - Responsive overrides */
+
+/* Large screens */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 1140px;
+    padding: 0 20px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .main-nav {
+    display: none;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .row {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .col-lg-6 {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+  .hero-title {
+    font-size: clamp(2rem, 6vw, 3.2rem);
+  }
+  .hero-section {
+    min-height: 80vh;
+    padding-top: 100px;
+  }
+  .cta-section {
+    padding: 60px 0;
+  }
+  .section-padding {
+    padding: 60px 0;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+  .header-inner {
+    padding: 10px 0;
+  }
+  .logo-elegancia {
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+  }
+  .logo-tag {
+    font-size: 0.45rem;
+    letter-spacing: 1px;
+  }
+  .hero-title {
+    font-size: clamp(1.8rem, 8vw, 2.8rem);
+  }
+  .hero-sub {
+    font-size: 0.95rem;
+  }
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-outline-light {
+    font-size: 0.85rem;
+    padding: 10px 24px;
+  }
+  .section-title {
+    font-size: clamp(1.4rem, 5vw, 2.2rem);
+  }
+  .category-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+  }
+  .collection-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+  }
+  .features-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+  }
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+  .blog-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .process-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+  }
+  .mobile-menu {
+    width: 280px;
+    padding: 24px 18px;
+  }
+  .cta-features {
+    gap: 10px 20px;
+  }
+  .cta-title {
+    font-size: clamp(1.4rem, 5vw, 2rem);
+  }
+  .cta-buttons .btn-primary.btn-lg,
+  .cta-buttons .btn-outline-light.btn-lg {
+    font-size: 0.85rem;
+    padding: 10px 24px;
+  }
+  .cart-float {
+    bottom: 16px;
+    left: 16px;
+    padding: 8px 12px;
+  }
+  .cart-float .cart-icon {
+    font-size: 1.2rem;
+  }
+  .cart-float .cart-total {
+    font-size: 0.7rem;
+    padding-left: 6px;
+  }
+  .cart-drawer {
+    max-width: 100%;
+    padding: 16px 18px;
+    max-height: 70vh;
+  }
+  .cart-drawer .drawer-header h3 {
+    font-size: 1rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: clamp(1.5rem, 10vw, 2.2rem);
+  }
+  .hero-sub {
+    font-size: 0.85rem;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-outline-light {
+    width: 100%;
+    justify-content: center;
+  }
+  .category-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .collection-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .features-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .stat-number {
+    font-size: 1.6rem;
+  }
+  .stat-suffix {
+    font-size: 1.4rem;
+  }
+  .stat-label {
+    font-size: 1.2rem;
+  }
+  .process-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .site-header .header-actions .btn-primary {
+    display: none !important;
+  }
+  .btn-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+  }
+  .section-padding {
+    padding: 40px 0;
+  }
+  .cta-section {
+    padding: 40px 0;
+  }
+  .icon-card {
+    padding: 16px 12px;
+  }
+  .icon-card i {
+    font-size: 1.4rem;
+  }
+  .icon-card h5 {
+    font-size: 0.8rem;
+  }
+  .icon-card p {
+    font-size: 0.7rem;
+  }
+  .testimonial-card {
+    padding: 18px 16px;
+  }
+  .blog-card .blog-body {
+    padding: 12px 14px 14px;
+  }
+  .blog-card h5 {
+    font-size: 0.9rem;
+  }
+  .collection-card .collection-info h4 {
+    font-size: 0.8rem;
+  }
+  .collection-card .collection-info p {
+    font-size: 0.65rem;
+  }
+}
