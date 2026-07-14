@@ -35,6 +35,8 @@ if (!defined('BASE_PATH')) {
 
 <meta name="p:domain_verify" content="774b60da553bf63fb8144c954787c771"/>
 
+<meta name="facebook-domain-verification" content="itzil26yq13a1vikqq3f7ylyumvq6q" />
+
 </head>
 <body>
 
@@ -59,74 +61,76 @@ if (!defined('BASE_PATH')) {
         <ul>
           <li><a href="index.php" class="nav-link <?php echo $current_page === 'index.php' ? 'active' : ''; ?>">Home</a></li>
           <li><a href="aboutus.php" class="nav-link <?php echo $current_page === 'aboutus.php' ? 'active' : ''; ?>">About</a></li>
-          <li class="has-dropdown">
+          <li class="has-dropdown" id="productsDropdown">
             <a href="product.php" class="nav-link <?php echo $current_page === 'product.php' ? 'active' : ''; ?>">Products <i class="fas fa-chevron-down dropdown-arrow"></i></a>
-            <div class="mega-dropdown">
-              <div class="mega-dropdown-grid">
-                <a href="product.php?cat=5300-series" class="mega-dropdown-item">
-                  <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=5300+Series" alt="5300 Series" width="200" height="200" loading="lazy" /></span>
-                  <span>5300 Series</span>
-                </a>
-                <a href="product.php?cat=5100-series" class="mega-dropdown-item">
-                  <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=5100+Series" alt="5100 Series" width="200" height="200" loading="lazy" /></span>
-                  <span>5100 Series</span>
-                </a>
-                <a href="product.php?cat=4200-series" class="mega-dropdown-item">
-                  <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=4200+Series" alt="4200 Series" width="200" height="200" loading="lazy" /></span>
-                  <span>4200 Series</span>
-                </a>
-                <a href="product.php?cat=wall-mouldings" class="mega-dropdown-item">
-                  <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Wall+Mouldings" alt="Wall Mouldings" width="200" height="200" loading="lazy" /></span>
-                  <span>Wall Mouldings</span>
-                </a>
-                <a href="product.php?cat=skirting" class="mega-dropdown-item">
-                  <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Skirting" alt="Skirting" width="200" height="200" loading="lazy" /></span>
-                  <span>Skirting</span>
-                </a>
-                <a href="product.php?cat=ceiling-cornices" class="mega-dropdown-item">
-                  <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Ceiling+Cornices" alt="Ceiling Cornices" width="200" height="200" loading="lazy" /></span>
-                  <span>Ceiling Cornices</span>
-                </a>
-                <a href="product.php?cat=wall-panels" class="mega-dropdown-item">
-                  <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Wall+Panels" alt="Wall Panels" width="200" height="200" loading="lazy" /></span>
-                  <span>Wall Panels</span>
-                </a>
-                <a href="product.php?cat=decorative-mouldings" class="mega-dropdown-item">
-                  <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Decorative+Mouldings" alt="Decorative Mouldings" width="200" height="200" loading="lazy" /></span>
-                  <span>Decorative Mouldings</span>
-                </a>
-                <a href="product.php?cat=premium-cornices" class="mega-dropdown-item">
-                  <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Premium+Cornices" alt="Premium Cornices" width="200" height="200" loading="lazy" /></span>
-                  <span>Premium Cornices</span>
-                </a>
-                <a href="product.php?cat=wall-coverings" class="mega-dropdown-item">
-                  <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Wall+Coverings" alt="Wall Coverings" width="200" height="200" loading="lazy" /></span>
-                  <span>Wall Coverings</span>
-                </a>
-                <a href="product.php?cat=floor-trims" class="mega-dropdown-item">
-                  <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Floor+Trims" alt="Floor Trims" width="200" height="200" loading="lazy" /></span>
-                  <span>Floor Trims</span>
-                </a>
-                <a href="product.php?cat=architraves" class="mega-dropdown-item">
-                  <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Architraves" alt="Architraves" width="200" height="200" loading="lazy" /></span>
-                  <span>Architraves</span>
-                </a>
-                <a href="product.php?cat=door-surrounds" class="mega-dropdown-item">
-                  <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Door+Surrounds" alt="Door Surrounds" width="200" height="200" loading="lazy" /></span>
-                  <span>Door Surrounds</span>
-                </a>
-                <a href="product.php?cat=window-sills" class="mega-dropdown-item">
-                  <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Window+Sills" alt="Window Sills" width="200" height="200" loading="lazy" /></span>
-                  <span>Window Sills</span>
-                </a>
-                <a href="product.php?cat=column-covers" class="mega-dropdown-item">
-                  <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Column+Covers" alt="Column Covers" width="200" height="200" loading="lazy" /></span>
-                  <span>Column Covers</span>
-                </a>
-                <a href="product.php?cat=rosettes" class="mega-dropdown-item">
-                  <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Rosettes" alt="Rosettes" width="200" height="200" loading="lazy" /></span>
-                  <span>Rosettes</span>
-                </a>
+            <div class="mega-dropdown" id="megaDropdown">
+              <div class="mega-dropdown-scroll">
+                <div class="mega-dropdown-grid">
+                  <a href="product.php?cat=5300-series" class="mega-dropdown-item">
+                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=5300+Series" alt="5300 Series" width="200" height="200" loading="lazy" /></span>
+                    <span>5300 Series</span>
+                  </a>
+                  <a href="product.php?cat=5100-series" class="mega-dropdown-item">
+                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=5100+Series" alt="5100 Series" width="200" height="200" loading="lazy" /></span>
+                    <span>5100 Series</span>
+                  </a>
+                  <a href="product.php?cat=4200-series" class="mega-dropdown-item">
+                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=4200+Series" alt="4200 Series" width="200" height="200" loading="lazy" /></span>
+                    <span>4200 Series</span>
+                  </a>
+                  <a href="product.php?cat=wall-mouldings" class="mega-dropdown-item">
+                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Wall+Mouldings" alt="Wall Mouldings" width="200" height="200" loading="lazy" /></span>
+                    <span>Wall Mouldings</span>
+                  </a>
+                  <a href="product.php?cat=skirting" class="mega-dropdown-item">
+                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Skirting" alt="Skirting" width="200" height="200" loading="lazy" /></span>
+                    <span>Skirting</span>
+                  </a>
+                  <a href="product.php?cat=ceiling-cornices" class="mega-dropdown-item">
+                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Ceiling+Cornices" alt="Ceiling Cornices" width="200" height="200" loading="lazy" /></span>
+                    <span>Ceiling Cornices</span>
+                  </a>
+                  <a href="product.php?cat=wall-panels" class="mega-dropdown-item">
+                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Wall+Panels" alt="Wall Panels" width="200" height="200" loading="lazy" /></span>
+                    <span>Wall Panels</span>
+                  </a>
+                  <a href="product.php?cat=decorative-mouldings" class="mega-dropdown-item">
+                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Decorative+Mouldings" alt="Decorative Mouldings" width="200" height="200" loading="lazy" /></span>
+                    <span>Decorative Mouldings</span>
+                  </a>
+                  <a href="product.php?cat=premium-cornices" class="mega-dropdown-item">
+                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Premium+Cornices" alt="Premium Cornices" width="200" height="200" loading="lazy" /></span>
+                    <span>Premium Cornices</span>
+                  </a>
+                  <a href="product.php?cat=wall-coverings" class="mega-dropdown-item">
+                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Wall+Coverings" alt="Wall Coverings" width="200" height="200" loading="lazy" /></span>
+                    <span>Wall Coverings</span>
+                  </a>
+                  <a href="product.php?cat=floor-trims" class="mega-dropdown-item">
+                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Floor+Trims" alt="Floor Trims" width="200" height="200" loading="lazy" /></span>
+                    <span>Floor Trims</span>
+                  </a>
+                  <a href="product.php?cat=architraves" class="mega-dropdown-item">
+                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Architraves" alt="Architraves" width="200" height="200" loading="lazy" /></span>
+                    <span>Architraves</span>
+                  </a>
+                  <a href="product.php?cat=door-surrounds" class="mega-dropdown-item">
+                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Door+Surrounds" alt="Door Surrounds" width="200" height="200" loading="lazy" /></span>
+                    <span>Door Surrounds</span>
+                  </a>
+                  <a href="product.php?cat=window-sills" class="mega-dropdown-item">
+                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Window+Sills" alt="Window Sills" width="200" height="200" loading="lazy" /></span>
+                    <span>Window Sills</span>
+                  </a>
+                  <a href="product.php?cat=column-covers" class="mega-dropdown-item">
+                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Column+Covers" alt="Column Covers" width="200" height="200" loading="lazy" /></span>
+                    <span>Column Covers</span>
+                  </a>
+                  <a href="product.php?cat=rosettes" class="mega-dropdown-item">
+                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Rosettes" alt="Rosettes" width="200" height="200" loading="lazy" /></span>
+                    <span>Rosettes</span>
+                  </a>
+                </div>
               </div>
             </div>
           </li>

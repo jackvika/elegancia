@@ -147,7 +147,7 @@
 }
 
 /* ============================================================
-   FIXED MEGA DROPDOWN - 4x4 Grid with No Blink
+   FIXED MEGA DROPDOWN - 4x4 Grid with Scroll & Attractive Design
    ============================================================ */
 
 /* ----- DROPDOWN CONTAINER ----- */
@@ -166,26 +166,30 @@
   transition: transform 0.3s var(--ease);
 }
 
-/* ----- MEGA DROPDOWN MENU - Fixed hover behavior ----- */
+.has-dropdown:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* ----- MEGA DROPDOWN MENU - Enhanced Design ----- */
 .mega-dropdown {
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translateX(-50%) translateY(8px);
-  background: rgba(20, 20, 20, 0.98);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(213, 168, 81, 0.1);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-lg);
-  padding: 24px;
+  transform: translateX(-50%) translateY(12px);
+  background: rgba(20, 20, 20, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(213, 168, 81, 0.12);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(213, 168, 81, 0.04);
+  padding: 20px;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.3s;
   z-index: 1001;
-  min-width: 820px;
-  max-width: 860px;
+  min-width: 860px;
+  max-width: 900px;
 }
 
 /* Show dropdown on hover of the parent li */
@@ -210,46 +214,102 @@
   pointer-events: auto;
 }
 
+/* ----- DROPDOWN SCROLL CONTAINER ----- */
+.mega-dropdown-scroll {
+  max-height: 460px;
+  overflow-y: auto;
+  padding-right: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(213, 168, 81, 0.3) transparent;
+}
+
+.mega-dropdown-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.mega-dropdown-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.mega-dropdown-scroll::-webkit-scrollbar-thumb {
+  background: rgba(213, 168, 81, 0.3);
+  border-radius: 10px;
+}
+
+.mega-dropdown-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(213, 168, 81, 0.5);
+}
+
 /* ----- 4x4 GRID LAYOUT ----- */
 .mega-dropdown-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+  gap: 14px;
   width: 100%;
 }
 
-/* ----- DROPDOWN ITEMS ----- */
+/* ----- DROPDOWN ITEMS - Enhanced ----- */
 .mega-dropdown-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  padding: 10px 8px;
+  padding: 12px 10px;
   border-radius: var(--radius-sm);
-  transition: all 0.3s var(--ease);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
   text-decoration: none;
   background: transparent;
+  position: relative;
+}
+
+.mega-dropdown-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, rgba(213, 168, 81, 0.04), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.mega-dropdown-item:hover::before {
+  opacity: 1;
 }
 
 .mega-dropdown-item:hover {
   background: rgba(213, 168, 81, 0.06);
-  transform: translateY(-4px);
+  transform: translateY(-6px) scale(1.02);
 }
 
 .mega-dropdown-item .dropdown-img-wrap {
   width: 100%;
   aspect-ratio: 1/1;
-  max-width: 180px;
+  max-width: 170px;
   border-radius: var(--radius-sm);
   overflow: hidden;
-  border: 1px solid rgba(213, 168, 81, 0.08);
-  transition: border-color 0.3s var(--ease);
+  border: 1px solid rgba(213, 168, 81, 0.06);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   background: var(--dark);
+  position: relative;
+}
+
+.mega-dropdown-item .dropdown-img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(213, 168, 81, 0.04), transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.mega-dropdown-item:hover .dropdown-img-wrap::after {
+  opacity: 1;
 }
 
 .mega-dropdown-item:hover .dropdown-img-wrap {
   border-color: var(--gold);
-  box-shadow: 0 4px 20px rgba(213, 168, 81, 0.1);
+  box-shadow: 0 8px 32px rgba(213, 168, 81, 0.12);
+  transform: scale(1.03);
 }
 
 .mega-dropdown-item img {
@@ -258,28 +318,62 @@
   aspect-ratio: 1/1;
   object-fit: cover;
   display: block;
-  transition: transform 0.5s var(--ease);
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .mega-dropdown-item:hover img {
-  transform: scale(1.06);
+  transform: scale(1.08);
 }
 
-.mega-dropdown-item span {
+.mega-dropdown-item .item-label {
   font-size: 0.78rem;
   font-weight: 500;
   color: var(--text-strong);
   text-align: center;
   letter-spacing: 0.3px;
   line-height: 1.2;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.mega-dropdown-item:hover .item-label {
+  color: var(--gold);
+}
+
+/* ----- DROPDOWN HEADER ----- */
+.mega-dropdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid rgba(213, 168, 81, 0.06);
+}
+
+.mega-dropdown-header h4 {
+  color: var(--gold);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.mega-dropdown-header .view-all {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+
+.mega-dropdown-header .view-all:hover {
+  color: var(--gold);
 }
 
 /* ----- RESPONSIVE MEGA DROPDOWN ----- */
 @media (max-width: 1200px) {
   .mega-dropdown {
-    min-width: 660px;
-    max-width: 700px;
-    padding: 20px;
+    min-width: 680px;
+    max-width: 720px;
+    padding: 18px;
   }
   
   .mega-dropdown-grid {
@@ -290,8 +384,12 @@
     max-width: 140px;
   }
   
-  .mega-dropdown-item span {
+  .mega-dropdown-item .item-label {
     font-size: 0.7rem;
+  }
+  
+  .mega-dropdown-scroll {
+    max-height: 400px;
   }
 }
 
@@ -308,10 +406,11 @@
 @media (max-width: 768px) {
   .mega-dropdown {
     min-width: auto;
-    max-width: 90vw;
+    max-width: 92vw;
     left: 50%;
     right: auto;
     padding: 16px;
+    border-radius: var(--radius);
   }
   
   .mega-dropdown-grid {
@@ -323,8 +422,16 @@
     max-width: 100px;
   }
   
-  .mega-dropdown-item span {
+  .mega-dropdown-item .item-label {
     font-size: 0.6rem;
+  }
+  
+  .mega-dropdown-scroll {
+    max-height: 340px;
+  }
+  
+  .mega-dropdown-header h4 {
+    font-size: 0.75rem;
   }
 }
 
@@ -338,8 +445,17 @@
     max-width: 80px;
   }
   
-  .mega-dropdown-item span {
+  .mega-dropdown-item .item-label {
     font-size: 0.55rem;
+  }
+  
+  .mega-dropdown-scroll {
+    max-height: 280px;
+  }
+  
+  .mega-dropdown {
+    padding: 12px;
+    max-width: 95vw;
   }
 }
 
@@ -358,4 +474,254 @@
 }
 .glow-gold:hover {
   box-shadow: 0 0 60px rgba(213, 168, 81, 0.08);
+}
+
+/* ----- ENHANCED DROPDOWN ARROW ANIMATION ----- */
+.has-dropdown .dropdown-arrow {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.has-dropdown:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* ----- DROPDOWN BADGE ----- */
+.mega-dropdown-item .item-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--gold);
+  color: var(--dark);
+  font-size: 0.5rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 50px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.mega-dropdown-item:hover .item-badge {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ----- DROPDOWN SEARCH BAR (optional enhancement) ----- */
+.mega-dropdown-search {
+  display: none;
+  margin-bottom: 14px;
+}
+
+.mega-dropdown-search input {
+  width: 100%;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(213, 168, 81, 0.06);
+  border-radius: var(--radius-sm);
+  color: var(--text-strong);
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.mega-dropdown-search input:focus {
+  border-color: var(--gold);
+}
+
+.mega-dropdown-search input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+/* ----- DROPDOWN LOADING STATE ----- */
+.mega-dropdown-loading {
+  display: none;
+  text-align: center;
+  padding: 30px 0;
+  color: var(--text-muted);
+}
+
+.mega-dropdown-loading i {
+  font-size: 1.6rem;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* ============================================================
+   ADDITIONAL DROPDOWN ENHANCEMENTS - Add to component.css
+   ============================================================ */
+
+/* ----- DROPDOWN ITEM HOVER GLOW ----- */
+.mega-dropdown-item {
+  position: relative;
+  overflow: visible;
+}
+
+.mega-dropdown-item .glow-ring {
+  position: absolute;
+  inset: -2px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, rgba(213, 168, 81, 0.2), transparent 50%, rgba(213, 168, 81, 0.1));
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.mega-dropdown-item:hover .glow-ring {
+  opacity: 1;
+}
+
+/* ----- DROPDOWN CATEGORY LABEL ----- */
+.mega-dropdown-item .item-category {
+  font-size: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+/* ----- DROPDOWN DIVIDER LINE ----- */
+.mega-dropdown-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(213, 168, 81, 0.06), transparent);
+  margin: 8px 0 12px;
+}
+
+/* ----- DROPDOWN FOOTER ----- */
+.mega-dropdown-footer {
+  display: flex;
+  justify-content: center;
+  padding-top: 14px;
+  margin-top: 14px;
+  border-top: 1px solid rgba(213, 168, 81, 0.04);
+}
+
+.mega-dropdown-footer .footer-link {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mega-dropdown-footer .footer-link:hover {
+  color: var(--gold);
+}
+
+.mega-dropdown-footer .footer-link i {
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+}
+
+.mega-dropdown-footer .footer-link:hover i {
+  transform: translateX(4px);
+}
+
+/* ----- DROPDOWN TOOLTIP ----- */
+.mega-dropdown-item .item-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  background: rgba(20, 20, 20, 0.95);
+  backdrop-filter: blur(8px);
+  color: var(--text-strong);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(213, 168, 81, 0.06);
+}
+
+.mega-dropdown-item:hover .item-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+/* ----- DROPDOWN SCROLL INDICATOR ----- */
+.mega-dropdown-scroll-indicator {
+  text-align: center;
+  padding: 8px 0 2px;
+  color: var(--text-muted);
+  font-size: 0.6rem;
+  opacity: 0.4;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: none;
+}
+
+.mega-dropdown-scroll-indicator i {
+  display: inline-block;
+  animation: floatDown 1.5s ease-in-out infinite;
+}
+
+.mega-dropdown-scroll.has-scroll .mega-dropdown-scroll-indicator {
+  display: block;
+}
+
+/* ----- DROPDOWN ANIMATIONS ----- */
+@keyframes dropdownSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(8px) scale(1);
+  }
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mega-dropdown.active {
+  animation: dropdownSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* ----- RESPONSIVE DROPDOWN ENHANCEMENTS ----- */
+@media (max-width: 1200px) {
+  .mega-dropdown-item .item-tooltip {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .mega-dropdown-item .item-category {
+    font-size: 0.45rem;
+  }
+  
+  .mega-dropdown-footer .footer-link {
+    font-size: 0.7rem;
+  }
+}
+
+/* ----- TOUCH DEVICE SUPPORT ----- */
+@media (hover: none) {
+  .has-dropdown .mega-dropdown {
+    display: none;
+  }
+  
+  .has-dropdown:hover .mega-dropdown {
+    display: none;
+  }
+  
+  .has-dropdown.active .mega-dropdown {
+    display: block;
+  }
 }

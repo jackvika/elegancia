@@ -41,6 +41,14 @@
   .section-padding {
     padding: 60px 0;
   }
+  
+  /* Hide desktop dropdown on tablet */
+  .mega-dropdown {
+    display: none !important;
+  }
+  .has-dropdown::after {
+    display: none !important;
+  }
 }
 
 /* Mobile */
@@ -142,6 +150,12 @@
   .cart-drawer .drawer-header h3 {
     font-size: 1rem;
   }
+  
+  /* Mobile dropdown grid */
+  .mobile-submenu-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
 }
 
 /* Small phones */
@@ -236,5 +250,31 @@
   }
   .collection-card .collection-info p {
     font-size: 0.65rem;
+  }
+  
+  /* Mobile submenu grid - 2 columns on very small screens */
+  .mobile-submenu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+  .mobile-submenu-item span {
+    font-size: 0.6rem;
+  }
+  .mobile-submenu-item img {
+    max-width: 80px;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 360px) {
+  .mobile-submenu-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+  }
+  .mobile-submenu-item span {
+    font-size: 0.5rem;
+  }
+  .mobile-submenu-item img {
+    max-width: 60px;
   }
 }

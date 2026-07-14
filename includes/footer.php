@@ -53,6 +53,8 @@
 <script src="assets/js/slider.js"></script>
 <script src="assets/js/animation.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/dropdown.js"></script>
+<script src="assets/js/dropdown-touch.js"></script>
 
 <!-- Inline script for loading overlay -->
 <script>
