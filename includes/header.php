@@ -32,6 +32,9 @@ if (!defined('BASE_PATH')) {
   <?php if (isset($use_tailwind) && $use_tailwind === true): ?>
   <script src="https://cdn.tailwindcss.com"></script>
   <?php endif; ?>
+
+<meta name="p:domain_verify" content="774b60da553bf63fb8144c954787c771"/>
+
 </head>
 <body>
 
