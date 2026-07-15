@@ -1,11 +1,19 @@
 <?php
-// includes/header.php - Global header
+// includes/header.php - Simplified header with series dropdown
 // DO NOT REMOVE OR MODIFY ANYTHING IN THIS FILE
 
-// Ensure BASE_PATH is defined
 if (!defined('BASE_PATH')) {
     define('BASE_PATH', dirname(__DIR__));
     define('INCLUDES_PATH', BASE_PATH . '/includes');
+}
+
+$pinterestMeta = '';
+if (defined('PINTEREST_ENABLED') && PINTEREST_ENABLED) {
+    $pinterestMeta = '
+    <meta name="pinterest-rich-pin" content="true" />
+    <meta property="og:type" content="product" />
+    <meta property="og:site_name" content="' . SITE_NAME . '" />
+    ';
 }
 ?>
 <!DOCTYPE html>
@@ -15,13 +23,11 @@ if (!defined('BASE_PATH')) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title><?php echo isset($page_title) ? $page_title . ' · ' . SITE_NAME : SITE_NAME; ?></title>
   
-  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   
-  <!-- CSS Files -->
   <link rel="stylesheet" href="assets/css/root.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/component.css" />
@@ -35,21 +41,18 @@ if (!defined('BASE_PATH')) {
 
 <meta name="p:domain_verify" content="774b60da553bf63fb8144c954787c771"/>
 
- <meta name="facebook-domain-verification" content="ovy780nxcrm9hkasj9em4euefef1cn" />
+<meta name="facebook-domain-verification" content="itzil26yq13a1vikqq3f7ylyumvq6q" />
 
 </head>
 <body>
 
-<!-- ===== LOADING OVERLAY ===== -->
 <div id="loadingOverlay" role="status" aria-label="Loading">
   <div class="loader-text">ELEGANCIA</div>
   <div class="loader-spinner"></div>
 </div>
 
-<!-- ===== SKIP LINK ===== -->
 <a href="#main" class="skip-link">Skip to main content</a>
 
-<!-- ===== HEADER ===== -->
 <header class="site-header" id="siteHeader" role="banner">
   <div class="container">
     <div class="header-inner">
@@ -66,70 +69,25 @@ if (!defined('BASE_PATH')) {
             <div class="mega-dropdown" id="megaDropdown">
               <div class="mega-dropdown-scroll">
                 <div class="mega-dropdown-grid">
-                  <a href="product.php?cat=5300-series" class="mega-dropdown-item">
-                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=5300+Series" alt="5300 Series" width="200" height="200" loading="lazy" /></span>
-                    <span>5300 Series</span>
+                  <?php
+                  // Show ONLY unique series (no duplicates)
+                  $unique_series = [];
+                  foreach ($series_data as $code => $series) {
+                      $unique_series[] = [
+                          'code' => $code,
+                          'name' => $series['name'],
+                          'img' => $series['image']
+                      ];
+                  }
+                  
+                  // Display only the unique series (5 items)
+                  foreach ($unique_series as $item):
+                  ?>
+                  <a href="product.php?series=<?php echo $item['code']; ?>" class="mega-dropdown-item">
+                    <span class="dropdown-img-wrap"><img src="<?php echo $item['img']; ?>" alt="<?php echo $item['name']; ?>" width="200" height="200" loading="lazy" /></span>
+                    <span class="item-label"><?php echo $item['name']; ?></span>
                   </a>
-                  <a href="product.php?cat=5100-series" class="mega-dropdown-item">
-                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=5100+Series" alt="5100 Series" width="200" height="200" loading="lazy" /></span>
-                    <span>5100 Series</span>
-                  </a>
-                  <a href="product.php?cat=4200-series" class="mega-dropdown-item">
-                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=4200+Series" alt="4200 Series" width="200" height="200" loading="lazy" /></span>
-                    <span>4200 Series</span>
-                  </a>
-                  <a href="product.php?cat=wall-mouldings" class="mega-dropdown-item">
-                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Wall+Mouldings" alt="Wall Mouldings" width="200" height="200" loading="lazy" /></span>
-                    <span>Wall Mouldings</span>
-                  </a>
-                  <a href="product.php?cat=skirting" class="mega-dropdown-item">
-                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Skirting" alt="Skirting" width="200" height="200" loading="lazy" /></span>
-                    <span>Skirting</span>
-                  </a>
-                  <a href="product.php?cat=ceiling-cornices" class="mega-dropdown-item">
-                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Ceiling+Cornices" alt="Ceiling Cornices" width="200" height="200" loading="lazy" /></span>
-                    <span>Ceiling Cornices</span>
-                  </a>
-                  <a href="product.php?cat=wall-panels" class="mega-dropdown-item">
-                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Wall+Panels" alt="Wall Panels" width="200" height="200" loading="lazy" /></span>
-                    <span>Wall Panels</span>
-                  </a>
-                  <a href="product.php?cat=decorative-mouldings" class="mega-dropdown-item">
-                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Decorative+Mouldings" alt="Decorative Mouldings" width="200" height="200" loading="lazy" /></span>
-                    <span>Decorative Mouldings</span>
-                  </a>
-                  <a href="product.php?cat=premium-cornices" class="mega-dropdown-item">
-                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Premium+Cornices" alt="Premium Cornices" width="200" height="200" loading="lazy" /></span>
-                    <span>Premium Cornices</span>
-                  </a>
-                  <a href="product.php?cat=wall-coverings" class="mega-dropdown-item">
-                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Wall+Coverings" alt="Wall Coverings" width="200" height="200" loading="lazy" /></span>
-                    <span>Wall Coverings</span>
-                  </a>
-                  <a href="product.php?cat=floor-trims" class="mega-dropdown-item">
-                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Floor+Trims" alt="Floor Trims" width="200" height="200" loading="lazy" /></span>
-                    <span>Floor Trims</span>
-                  </a>
-                  <a href="product.php?cat=architraves" class="mega-dropdown-item">
-                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Architraves" alt="Architraves" width="200" height="200" loading="lazy" /></span>
-                    <span>Architraves</span>
-                  </a>
-                  <a href="product.php?cat=door-surrounds" class="mega-dropdown-item">
-                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Door+Surrounds" alt="Door Surrounds" width="200" height="200" loading="lazy" /></span>
-                    <span>Door Surrounds</span>
-                  </a>
-                  <a href="product.php?cat=window-sills" class="mega-dropdown-item">
-                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Window+Sills" alt="Window Sills" width="200" height="200" loading="lazy" /></span>
-                    <span>Window Sills</span>
-                  </a>
-                  <a href="product.php?cat=column-covers" class="mega-dropdown-item">
-                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Column+Covers" alt="Column Covers" width="200" height="200" loading="lazy" /></span>
-                    <span>Column Covers</span>
-                  </a>
-                  <a href="product.php?cat=rosettes" class="mega-dropdown-item">
-                    <span class="dropdown-img-wrap"><img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Rosettes" alt="Rosettes" width="200" height="200" loading="lazy" /></span>
-                    <span>Rosettes</span>
-                  </a>
+                  <?php endforeach; ?>
                 </div>
               </div>
             </div>
@@ -143,7 +101,7 @@ if (!defined('BASE_PATH')) {
       <div class="header-actions">
         <button class="btn-icon" aria-label="Search"><i class="fas fa-search"></i></button>
         <button class="btn-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></button>
-        <a href="#contact" class="btn-primary btn-sm d-none d-lg-inline-flex">Get Quote</a>
+        <a href="contact.php" class="btn-primary btn-sm d-none d-lg-inline-flex">Get Quote</a>
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
           <i class="fas fa-bars"></i>
         </button>
@@ -152,7 +110,6 @@ if (!defined('BASE_PATH')) {
   </div>
 </header>
 
-<!-- ===== MOBILE MENU ===== -->
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
   <button class="close-menu" id="closeMenu" aria-label="Close menu"><i class="fas fa-times"></i></button>
   <nav role="navigation" aria-label="Mobile navigation">
@@ -168,70 +125,25 @@ if (!defined('BASE_PATH')) {
         </div>
         <div class="mobile-submenu">
           <div class="mobile-submenu-grid">
-            <a href="product.php?cat=5300-series" class="mobile-submenu-item">
-              <img src="https://placehold.co/200x200/1a1a1a/d5a851?text=5300+Series" alt="5300 Series" width="200" height="200" loading="lazy" />
-              <span>5300 Series</span>
+            <?php
+            // Show unique series for mobile (no duplicates)
+            $mobile_series = [];
+            foreach ($series_data as $code => $series) {
+                $mobile_series[] = [
+                    'code' => $code,
+                    'name' => $series['name'],
+                    'img' => $series['image']
+                ];
+            }
+            // Limit to 6 items (but we only have 5)
+            $mobile_series = array_slice($mobile_series, 0, 6);
+            foreach ($mobile_series as $item):
+            ?>
+            <a href="product.php?series=<?php echo $item['code']; ?>" class="mobile-submenu-item">
+              <img src="<?php echo $item['img']; ?>" alt="<?php echo $item['name']; ?>" width="200" height="200" loading="lazy" />
+              <span><?php echo $item['name']; ?></span>
             </a>
-            <a href="product.php?cat=5100-series" class="mobile-submenu-item">
-              <img src="https://placehold.co/200x200/1a1a1a/d5a851?text=5100+Series" alt="5100 Series" width="200" height="200" loading="lazy" />
-              <span>5100 Series</span>
-            </a>
-            <a href="product.php?cat=4200-series" class="mobile-submenu-item">
-              <img src="https://placehold.co/200x200/1a1a1a/d5a851?text=4200+Series" alt="4200 Series" width="200" height="200" loading="lazy" />
-              <span>4200 Series</span>
-            </a>
-            <a href="product.php?cat=wall-mouldings" class="mobile-submenu-item">
-              <img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Wall+Mouldings" alt="Wall Mouldings" width="200" height="200" loading="lazy" />
-              <span>Wall Mouldings</span>
-            </a>
-            <a href="product.php?cat=skirting" class="mobile-submenu-item">
-              <img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Skirting" alt="Skirting" width="200" height="200" loading="lazy" />
-              <span>Skirting</span>
-            </a>
-            <a href="product.php?cat=ceiling-cornices" class="mobile-submenu-item">
-              <img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Ceiling+Cornices" alt="Ceiling Cornices" width="200" height="200" loading="lazy" />
-              <span>Ceiling Cornices</span>
-            </a>
-            <a href="product.php?cat=wall-panels" class="mobile-submenu-item">
-              <img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Wall+Panels" alt="Wall Panels" width="200" height="200" loading="lazy" />
-              <span>Wall Panels</span>
-            </a>
-            <a href="product.php?cat=decorative-mouldings" class="mobile-submenu-item">
-              <img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Decorative+Mouldings" alt="Decorative Mouldings" width="200" height="200" loading="lazy" />
-              <span>Decorative Mouldings</span>
-            </a>
-            <a href="product.php?cat=premium-cornices" class="mobile-submenu-item">
-              <img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Premium+Cornices" alt="Premium Cornices" width="200" height="200" loading="lazy" />
-              <span>Premium Cornices</span>
-            </a>
-            <a href="product.php?cat=wall-coverings" class="mobile-submenu-item">
-              <img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Wall+Coverings" alt="Wall Coverings" width="200" height="200" loading="lazy" />
-              <span>Wall Coverings</span>
-            </a>
-            <a href="product.php?cat=floor-trims" class="mobile-submenu-item">
-              <img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Floor+Trims" alt="Floor Trims" width="200" height="200" loading="lazy" />
-              <span>Floor Trims</span>
-            </a>
-            <a href="product.php?cat=architraves" class="mobile-submenu-item">
-              <img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Architraves" alt="Architraves" width="200" height="200" loading="lazy" />
-              <span>Architraves</span>
-            </a>
-            <a href="product.php?cat=door-surrounds" class="mobile-submenu-item">
-              <img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Door+Surrounds" alt="Door Surrounds" width="200" height="200" loading="lazy" />
-              <span>Door Surrounds</span>
-            </a>
-            <a href="product.php?cat=window-sills" class="mobile-submenu-item">
-              <img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Window+Sills" alt="Window Sills" width="200" height="200" loading="lazy" />
-              <span>Window Sills</span>
-            </a>
-            <a href="product.php?cat=column-covers" class="mobile-submenu-item">
-              <img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Column+Covers" alt="Column Covers" width="200" height="200" loading="lazy" />
-              <span>Column Covers</span>
-            </a>
-            <a href="product.php?cat=rosettes" class="mobile-submenu-item">
-              <img src="https://placehold.co/200x200/1a1a1a/d5a851?text=Rosettes" alt="Rosettes" width="200" height="200" loading="lazy" />
-              <span>Rosettes</span>
-            </a>
+            <?php endforeach; ?>
           </div>
         </div>
       </li>
@@ -244,5 +156,4 @@ if (!defined('BASE_PATH')) {
 </div>
 <div class="menu-overlay" id="menuOverlay"></div>
 
-<!-- ===== MAIN CONTENT ===== -->
 <main id="main">

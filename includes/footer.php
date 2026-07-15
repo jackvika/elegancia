@@ -4,7 +4,6 @@
 ?>
 </main>
 
-<!-- ===== FOOTER ===== -->
 <footer class="site-footer" role="contentinfo">
   <div class="container">
     <div class="footer-grid">
@@ -48,7 +47,6 @@
   </div>
 </footer>
 
-<!-- ===== SCRIPTS ===== -->
 <script src="assets/js/menu.js"></script>
 <script src="assets/js/slider.js"></script>
 <script src="assets/js/animation.js"></script>
@@ -56,7 +54,6 @@
 <script src="assets/js/dropdown.js"></script>
 <script src="assets/js/dropdown-touch.js"></script>
 
-<!-- Inline script for loading overlay -->
 <script>
   (function() {
     window.addEventListener('load', function() {

@@ -1,5 +1,5 @@
 <?php
-// api/cart.php - Cart API endpoints
+// api/cart.php - Cart API with Pinterest compatibility
 require_once __DIR__ . '/../config.php';
 
 // Start session if not started
@@ -22,9 +22,8 @@ if (!isset($_SESSION['cart'])) {
 }
 
 // Get products from config
-global $products;
+global $all_products;
 
-// Helper function for JSON response
 function sendResponse($success, $message, $data = null) {
     echo json_encode([
         'success' => $success,
@@ -45,10 +44,14 @@ switch ($action) {
         
         $productId = $input['product_id'] ?? '';
         $qty = max(1, intval($input['qty'] ?? 1));
+        $name = $input['name'] ?? '';
+        $price = floatval($input['price'] ?? 0);
+        $image = $input['image'] ?? '';
         
-        // Find product
+        // Find product in global data
         $product = null;
-        foreach ($products as $p) {
+        global $all_products;
+        foreach ($all_products as $p) {
             if ((string)$p['id'] === (string)$productId) {
                 $product = $p;
                 break;
@@ -56,7 +59,14 @@ switch ($action) {
         }
         
         if (!$product) {
-            sendResponse(false, 'Product not found. ID: ' . $productId);
+            // Use provided data if product not found
+            $product = [
+                'id' => $productId,
+                'name' => $name,
+                'price' => $price,
+                'image' => $image,
+                'unit' => 'unit'
+            ];
         }
         
         // Add to cart
@@ -75,7 +85,8 @@ switch ($action) {
                 'name' => $product['name'],
                 'price' => floatval($product['price']),
                 'qty' => $qty,
-                'image' => $product['image'] ?? ''
+                'image' => $product['image'] ?? '',
+                'unit' => $product['unit'] ?? 'unit'
             ];
         }
         
@@ -102,7 +113,6 @@ switch ($action) {
             return (string)$item['id'] !== (string)$productId;
         }));
         
-        // Calculate totals
         $total = 0;
         $count = 0;
         foreach ($_SESSION['cart'] as $item) {
@@ -135,7 +145,6 @@ switch ($action) {
             }
         }
         
-        // Calculate totals
         $total = 0;
         $count = 0;
         foreach ($_SESSION['cart'] as $item) {
